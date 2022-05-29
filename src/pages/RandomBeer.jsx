@@ -3,6 +3,7 @@ import React from 'react'
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Navbar from '../components/Navbar';
 
 function RandomBeer() {
 
@@ -32,18 +33,23 @@ function RandomBeer() {
   return (
     <div>
 
-    <header>
-        <Link to="/">Home</Link>
-    </header>
+    <Navbar />
 
-    <img src={randomBeerDetails.image_url} alt="Beer" height="200"/>
+    <div id="random-container">
+
+    <img src={randomBeerDetails.image_url} alt="Beer" width="75"/>
+    <div id="random-details">
+    <title className="random-title">
     <h2>{randomBeerDetails.name}</h2>
+    <p>{randomBeerDetails.attenuation_level}</p>
+    </title>
     <p>{randomBeerDetails.tagline}</p>
     <p>{randomBeerDetails.first_brewed}</p>
-    <p>{randomBeerDetails.attenuation_level}</p>
+    
     <p>{randomBeerDetails.description}</p>
     <p>{randomBeerDetails.contributed_by}</p>
-
+    </div>
+    </div>
     </div>
   )
 }

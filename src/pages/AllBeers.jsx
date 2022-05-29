@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { PropagateLoader } from 'react-spinners'
+import Navbar from '../components/Navbar'
 
 
 function AllBeers() {
@@ -38,25 +39,24 @@ function AllBeers() {
   
     return (
       
-    <div>
+    <div id="allBeers">
 
-    <header>
-        <Link to="/">Home</Link>
-    </header>
+        <Navbar />
 
         {
             allBeers.map((eachBeer) => {
                 return(
-                    <li key={eachBeer._id}>
+                    <div key={eachBeer._id} id="container">
                     <img src={eachBeer.image_url} alt="Beer" height="150" />
+                    <div id="container-details">
                     <Link to={ `/beers/${eachBeer._id}` }>{eachBeer.name}</Link>
+                    <h3>{eachBeer.tagline}</h3>
+                    <h5>{eachBeer.contributed_by}</h5>
                     <br></br>
-                    {eachBeer.tagline}
-                    <br></br>
-                    {eachBeer.contributed_by}
-                    <br></br>
-                    <hr />
-                    </li>
+                    
+                    </div>
+                    
+                    </div>
                 )
             })
             

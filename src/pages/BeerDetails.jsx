@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import PropagateLoader from 'react-spinners/PropagateLoader'
+import Navbar from '../components/Navbar'
 
 function BeerDetails() {
 
@@ -39,17 +40,22 @@ function BeerDetails() {
   return (
     <div>
 
-    <header>
-        <Link to="/">Home</Link>
-    </header>
+    <Navbar />
+
+    <div id="random-container">
 
     <img src={beerDetails.image_url} alt="Cerveza" height={200}/>
+    <div id="random-details">
     <h2>{beerDetails.name}</h2>
     <p>{beerDetails.tagline}</p>
     <p>{beerDetails.first_brewed}</p>
     <p>{beerDetails.attenuation_level}</p>
     <p>{beerDetails.description}</p>
     <p>{beerDetails.contributed_by}</p>
+
+    </div>
+
+    </div>
 
     </div>
   )
